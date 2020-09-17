@@ -14,7 +14,7 @@ server.use(express.json());
 server.use(cors());
 
 server.use("/api/clients", authenticator, clientRouter);
-server.use("api/auth", clientAuthRouter);
+server.use("/api/auth", clientAuthRouter);
 
 server.get("/", (req, res) => {
   res.status(200).json({ message: "It's working!" });
