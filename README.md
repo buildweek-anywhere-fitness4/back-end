@@ -8,7 +8,29 @@ https://anywhere-fitness4.herokuapp.com/
 
 # Endpoints
 
+| Request | URL                           | Description                                         |
+| ------- | ----------------------------- | --------------------------------------------------- |
+| POST    | /api/auth/client_register     | creates a new user with username and password       |
+| POST    | /api/auth/client_login        | login valid user with username and password         |
+| POST    | /api/auth/instructor_register | creates a new instructor with username and password |
+| POST    | /api/auth/instructor_login    | login valid instructor with username and password   |
+| POST    | /api/class/:id                | adds a class                                        |
+| GET     | /api/client                   | gets all registered clients                         |
+| GET     | /api/instructor               | gets all registered instructors                     |
+| GET     | /api/class                    | gets all available classes                          |
+| GET     | /api/class/:id                | gets class by ID                                    |
+| PUT     | /api/class/:id                | edits by class ID                                   |
+| DELETE  | /api/class/:id                | delete class by ID                                  |
+
 # Table Requirements
+
+## Clients & Instructor
+
+| Name     | Type    | Required | Unique | Notes                     |
+| -------- | ------- | -------- | ------ | ------------------------- |
+| id       | integer | yes      | yes    | users id (auto generated) |
+| username | string  | yes      | yes    | users name                |
+| password | string  | yes      | no     | users password            |
 
 # Dependencies Used
 
