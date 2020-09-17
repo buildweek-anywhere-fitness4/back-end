@@ -13,7 +13,7 @@ server.use(helmet());
 server.use(express.json());
 server.use(cors());
 
-server.use("/api/clients", authenticator, clientRouter);
+server.use("/api/clients", clientRouter);
 server.use("/api/auth", clientAuthRouter);
 
 server.get("/", (req, res) => {
