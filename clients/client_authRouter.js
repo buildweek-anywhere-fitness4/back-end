@@ -21,7 +21,7 @@ router.post("/client_register", (req, res) => {
     });
 });
 
-router.post("/client_login", (req, rest) => {
+router.post("/client_login", (req, res) => {
   let { username, password } = req.body;
 
   Clients.findBy({ username })
@@ -38,5 +38,19 @@ router.post("/client_login", (req, rest) => {
       res.status(500).json({ errorMessage: error.message });
     });
 });
+
+function generateToken(user) {
+  const payload = {
+    userId: user.id,
+    username: user.username,
+  };
+  const secret = secret.jwtSecret;
+
+  const options = {
+    expiresIn: "1d",
+  };
+
+  return jwt.sign(payload, secret, options);
+}
 
 module.exports = router;
