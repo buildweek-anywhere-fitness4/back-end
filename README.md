@@ -1,8 +1,8 @@
-# back-end
+# Back-end
 
 This is the repository for the Backend team of AnywhereFitness4
 
-# Base URL for Deployed API
+# Base URL for deployed API
 
 # Endpoints
 
@@ -28,6 +28,6 @@ This is the repository for the Backend team of AnywhereFitness4
 }
 ```
 
-# Author
+### Author
 
 - Michael Sheets
