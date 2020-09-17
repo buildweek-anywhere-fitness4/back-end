@@ -24,13 +24,35 @@ https://anywhere-fitness4.herokuapp.com/
 
 # Table Requirements
 
-## Clients & Instructor
+## Clients
 
 | Name     | Type    | Required | Unique | Notes                     |
 | -------- | ------- | -------- | ------ | ------------------------- |
 | id       | integer | yes      | yes    | users id (auto generated) |
 | username | string  | yes      | yes    | users name                |
 | password | string  | yes      | no     | users password            |
+
+## Instructors
+
+| Name     | Type    | Required | Unique | Notes                     |
+| -------- | ------- | -------- | ------ | ------------------------- |
+| id       | integer | yes      | yes    | users id (auto generated) |
+| username | string  | yes      | yes    | users name                |
+| password | string  | yes      | no     | users password            |
+
+## Classes
+
+| Name          | Type    | Required | Unique | Notes                     |
+| ------------- | ------- | -------- | ------ | ------------------------- |
+| id            | integer | yes      | yes    | users id (auto generated) |
+| instructor_id | string  | no       | yes    | instructor's ID           |
+| name          | string  | yes      | no     | instructor                |
+| type          | string  | yes      | no     | class type                |
+| start_time    | string  | yes      | no     | class start time          |
+| duration      | string  | yes      | no     | length of time class is   |
+| intensity     | string  | yes      | no     | intensity of class        |
+| location      | string  | yes      | no     | location of class         |
+| max_size      | integer | yes      | no     | max class size            |
 
 # Dependencies Used
 
