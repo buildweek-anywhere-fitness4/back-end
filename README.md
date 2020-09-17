@@ -4,6 +4,8 @@ This is the repository for the Backend team of AnywhereFitness4
 
 # Base URL for deployed API
 
+https://anywhere-fitness4.herokuapp.com/
+
 # Endpoints
 
 # Table Requirements
