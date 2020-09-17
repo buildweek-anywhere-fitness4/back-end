@@ -32,7 +32,7 @@ https://anywhere-fitness4.herokuapp.com/
 | username | string  | yes      | yes    | users name                |
 | password | string  | yes      | no     | users password            |
 
-# Dependencies Used
+# Dependencies Used
 
 ```json
 "dependencies": {
@@ -52,6 +52,6 @@ https://anywhere-fitness4.herokuapp.com/
 }
 ```
 
-### Author
+# Author
 
 - Michael Sheets
