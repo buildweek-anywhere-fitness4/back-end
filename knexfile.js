@@ -29,6 +29,17 @@ module.exports = {
     },
   },
 
+  production: {
+    client: "pg",
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: "./database/migrations",
+    },
+    seeds: {
+      directory: "./database/seeds",
+    },
+  },
+
   staging: {
     client: "postgresql",
     connection: {
@@ -42,19 +53,6 @@ module.exports = {
       },
       migrations: {
         tableName: "knex_migrations",
-      },
-    },
-
-    production: {
-      client: "pg",
-      connection: {
-        database: process.env.DATABASE_URL,
-        migrations: {
-          directory: "./database/migrations",
-        },
-        seeds: {
-          directory: "./database/seeds",
-        },
       },
     },
   },
