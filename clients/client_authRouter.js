@@ -2,7 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const Clients = require("./client_model");
-const secret = require("../secret");
+const secrets = require("../secret");
 
 const router = express.Router();
 
@@ -44,7 +44,7 @@ function generateToken(user) {
     userId: user.id,
     username: user.username,
   };
-  const secret = secret.jwtSecret;
+  const secret = secrets.jwtSecret;
 
   const options = {
     expiresIn: "1d",
