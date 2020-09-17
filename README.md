@@ -1,6 +1,6 @@
 # Back-end
 
-This is the repository for the Backend team of AnywhereFitness4
+This is the repository for the back-end team of AnywhereFitness4
 
 # Base URL for deployed API
 
@@ -45,7 +45,7 @@ https://anywhere-fitness4.herokuapp.com/
 | Name          | Type    | Required | Unique | Notes                     |
 | ------------- | ------- | -------- | ------ | ------------------------- |
 | id            | integer | yes      | yes    | users id (auto generated) |
-| instructor_id | string  | no       | yes    | instructor's ID           |
+| instructor_id | string  | yes      | yes    | instructor's ID           |
 | name          | string  | yes      | no     | instructor                |
 | type          | string  | yes      | no     | class type                |
 | start_time    | string  | yes      | no     | class start time          |
