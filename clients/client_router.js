@@ -1,12 +1,11 @@
 const express = require("express");
 const Clients = require("./client_model");
+const restrict = require("../middleware");
 const router = express.Router();
 
-router.get("/", async (req, res, next) => {
+router.get("/", restrict(), async (req, res, next) => {
   try {
-    const client = await Clients.find();
-    res.json(client);
-    console.log("token", req.decodedToken);
+    res.json(await Clients.find());
   } catch (err) {
     next(err);
   }

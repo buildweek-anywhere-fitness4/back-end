@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 const clientRouter = require("./clients/client_router");
 const clientAuthRouter = require("./clients/client_authRouter");
@@ -10,8 +11,9 @@ const authenticator = require("./middleware");
 const server = express();
 
 server.use(helmet());
-server.use(express.json());
 server.use(cors());
+server.use(cookieParser());
+server.use(express.json());
 
 server.use("/api/clients", clientRouter);
 server.use("/api/auth", clientAuthRouter);
