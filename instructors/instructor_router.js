@@ -1,15 +1,14 @@
 const express = require("express");
-const Instructors = require("./instrusctors_model");
+const Instructor = require("./instrusctors_model");
+const restrict = require("../middleware");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  console.log("token", req.decodedToken);
-
-  Instructors.find()
-    .then((instructors) => {
-      res.json(instructors);
-    })
-    .catch((err) => res.send(err));
+router.get("/", restrict(), async (req, res, next) => {
+  try {
+    res.json(await Instructor.find());
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
