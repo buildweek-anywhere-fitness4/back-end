@@ -8,6 +8,7 @@ const clientRouter = require("./clients/client_router");
 const clientAuthRouter = require("./clients/client_authRouter");
 const instructorRouter = require("./instructors/instructor_router");
 const instructorAuthRouter = require("./instructors/instructor_authRouter");
+const classRouter = require("./classes/class_router");
 
 const server = express();
 
@@ -19,6 +20,7 @@ server.use(express.json());
 server.use("/api/clients", clientRouter);
 server.use("/api/instructors", instructorRouter);
 server.use("/api/auth", clientAuthRouter, instructorAuthRouter);
+server.use("/api/class", classRouter);
 
 server.get("/", (req, res) => {
   res.status(200).json({ message: "It's working!" });
