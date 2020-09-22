@@ -3,6 +3,7 @@ exports.seed = function (knex) {
   // Inserts seed entries
   return knex("class").insert([
     {
+      id: 1,
       instructor_id: 1,
       name: "crossfit",
       type: "hiit",
@@ -13,6 +14,7 @@ exports.seed = function (knex) {
       max_size: 12,
     },
     {
+      id: 2,
       instructor_id: 2,
       name: "crossfit",
       type: "hiit",
@@ -23,6 +25,7 @@ exports.seed = function (knex) {
       max_size: 12,
     },
     {
+      id: 3,
       instructor_id: 3,
       name: "crossfit",
       type: "hiit",
