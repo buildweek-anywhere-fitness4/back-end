@@ -38,7 +38,12 @@ function getAll() {
 }
 
 function update(changes, id) {
-  return db("class").where({ id }).update(changes);
+  return db("class")
+    .where({ id })
+    .update(changes)
+    .then((id) => {
+      return getById(id);
+    });
 }
 
 function remove(id) {

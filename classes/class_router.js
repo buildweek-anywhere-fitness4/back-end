@@ -37,15 +37,21 @@ router.get("/:id", restrict(), (req, res) => {
     });
 });
 
-router.put("/:id", restrict(), async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    await db("class").where({ id }).update(req.body);
-    const Classes = await db("class").where({ id }).first();
-    res.json(Classes);
-  } catch (err) {
-    next(err);
-  }
+router.put("/:id", restrict(), (req, res) => {
+  const { id } = req.params;
+  const changes = req.body;
+  console.log("changes", changes);
+  Classes.update(changes, id)
+    .then((updated) => {
+      console.log("updated", updated);
+      res.status(200).json(updated);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        message: "Error updating the project",
+      });
+    });
 });
 
 router.delete("/:id", restrict(), async (req, res, next) => {
