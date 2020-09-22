@@ -57,6 +57,7 @@ function findById(id) {
 function addClass(newClass) {
   return db("class")
     .insert(newClass)
+    .returning(`id`)
     .then((ids) => {
       return findById(ids[0]);
     });
