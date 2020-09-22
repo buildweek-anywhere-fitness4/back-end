@@ -1,6 +1,6 @@
-exports.seed = function (knex) {
+exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  return knex("class").truncate();
-  return knex("instructor").truncate();
-  return knex("client").truncate();
+  await knex("class").truncate();
+  await knex("instructor").truncate();
+  await knex("client").truncate();
 };
