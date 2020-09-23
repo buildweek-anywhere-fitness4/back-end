@@ -37,21 +37,36 @@ router.get("/:id", restrict(), (req, res) => {
     });
 });
 
-router.put("/:id", restrict(), (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
-  console.log("changes", changes);
-  Classes.update(changes, id)
-    .then((updated) => {
-      console.log("updated", updated);
-      res.status(200).json(updated);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json({
-        message: "Error updating the project",
-      });
-    });
+
+  try {
+    console.log("changes", changes);
+    const count = await db("class").where({ id }).update(changes);
+    const updatedClass = await db("class").where({ id }).first();
+    console.log(updatedClass);
+    if (count) {
+      res.status(200).json({ updatedClass });
+    } else {
+      res.status(404).json({ message: "Error updating the project" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Error updating the project" });
+  }
+
+  // Classes.update(changes, id)
+  //   .then((updated) => {
+  //     console.log("updated", updated);
+  //     res.status(200).json(updated);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).json({
+  //       message: "Error updating the project",
+  //     });
+  //   });
 });
 
 router.delete("/:id", restrict(), async (req, res, next) => {
